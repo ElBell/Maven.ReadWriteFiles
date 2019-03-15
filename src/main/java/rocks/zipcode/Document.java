@@ -34,7 +34,7 @@ public class Document implements DocumentInterface {
             fileWriter.append(contentToBeWritten);
             fileWriter.flush();
         } catch (IOException e) {
-            e.printStackTrace();
+            throw new Error(e);
         }
     }
 
@@ -79,7 +79,7 @@ public class Document implements DocumentInterface {
             fileOverwritter.write(content);
             fileOverwritter.flush();
         } catch (IOException e) {
-            e.printStackTrace();
+            throw new Error(e);
         }
     }
 
@@ -87,9 +87,8 @@ public class Document implements DocumentInterface {
         try {
             return Files.readAllLines(file.toPath());
         } catch (IOException e) {
-            e.printStackTrace();
+            throw new Error(e);
         }
-        return null;
     }
 
     @Override
