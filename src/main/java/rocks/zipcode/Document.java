@@ -52,12 +52,9 @@ public class Document implements DocumentInterface {
     public String read() {
        StringBuilder stringBuilder = new StringBuilder();
         for (String s : toList()) {
-            stringBuilder.append(s);
-            if(!(s.equals(toList().get(toList().size() - 1)))) {
-                stringBuilder.append("\n");
-            }
+            stringBuilder.append(s).append("\n");
         }
-        return stringBuilder.toString();
+        return stringBuilder.toString().replaceAll("\n$", "");
 //        try (Stream<String> lines = Files.lines(file.toPath())) {
 //            lines.forEach(System.out::println);//stringBuilder::append);
 //            return stringBuilder.toString();
